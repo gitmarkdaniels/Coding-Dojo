@@ -1,0 +1,87 @@
+.custom_nav {
+	background-color: #ffffff;
+}
+
+form {
+	width: 350px;
+}
+
+#user_wall form {
+	width: 100%;
+}
+
+fieldset {
+	margin: 25px 0px;
+	padding: 5px;
+	border: 1px solid #999999;
+	border-bottom: 3px solid #333333;
+	border-radius: 10px;
+}
+	legend {
+		border: 1px solid #999999;
+		border-top: 3px solid #999999;
+		border-radius: 6px;
+		border-bottom: none;
+		padding: 0px 5px;
+		text-align: left;
+	}
+
+fieldset button {
+	background-color: #d9edf7;
+	font-weight: bold;
+	color: #666666;
+	width: 75px;
+	height: 30px;
+	margin: 5px;
+	padding: 0px;
+	border-radius: 7px;
+}
+
+textarea {
+	resize: none;
+}
+
+.inline_display {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.message_post {
+	background-color: #009ac7;
+	color: #ededed;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.comment {
+		margin: 0px;
+		margin-left: 10%;
+		border-radius: 5px;
+		padding: 0px;
+	}
+	.comment_post {
+		background-color: #779aa7;
+		border-radius: 5px;
+		padding: 10px;
+	}
+
+.sm_font {
+	display: block;
+	font-size: 14px;
+}
+
+.md_font {
+	font-size: 18px;
+}
+
+.bg_font {
+	font-size: 22px;
+}
+
+.ml_150 {
+	margin-left: 150px;
+}
+
+.ml_350 {
+	margin-left: 385px;
+}
