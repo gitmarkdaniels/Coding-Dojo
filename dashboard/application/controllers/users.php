@@ -38,7 +38,7 @@
 				else
 				{
 					$this->session->set_flashdata('login_fail', 'Login failed');
-					redirect('users/signin');
+					redirect('signin');
 				}
 			}
 			else
@@ -50,7 +50,7 @@
 		public function register()
 		{
 			$user_input = $this->input->post(NULL, TRUE);
-			var_dump($user_input);
+			// var_dump($user_input);
 			
 			if ($user_input)
 			{

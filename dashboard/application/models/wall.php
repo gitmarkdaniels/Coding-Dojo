@@ -4,14 +4,14 @@
 	{
 		public function show($user_id)
 		{
-			$query = "SELECT * FROM walls WHERE user_id = ?";
+			$query = "SELECT * FROM walls WHERE users_id = ?";
 			$wall = $this->db->query($query, $user_id)->row_array();
 			return $wall;
 		}
 
 		public function create($user_id)
 		{
-			$query = "INSERT INTO walls (user_id) VALUES (?)";
+			$query = "INSERT INTO walls (users_id) VALUES (?)";
 			return $this->db->query($query, $user_id);
 		}
 	}
