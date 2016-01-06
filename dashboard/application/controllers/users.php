@@ -33,7 +33,7 @@
 					$this->session->set_userdata('user', $user_data);
 
 					$this->session->set_flashdata('login_success', 'You are logged in');
-					redirect('/users/show/' . $user_data['user_id']);
+					redirect('users/show/' . $user_data['user_id']);
 				}
 				else
 				{
@@ -64,7 +64,7 @@
 				else
 				{
 					$this->session->set_flashdata('login_msg', 'Registration failed');
-					redirect('/register');
+					redirect('register');
 				}
 			}
 			else
@@ -80,7 +80,7 @@
 
 		public function show($user_id)
 		{
-			$user = $this->User->show($user_id);
+			$user = $this->User->get_user($user_id);
 			$wall = $this->Wall->show($user_id);
 
 			if ($wall == NULL)
@@ -89,9 +89,6 @@
 			}
 
 			$wall = $this->Wall->show($user_id);
-			
-
-
 
 			$this->load->view('users/show');
 		}

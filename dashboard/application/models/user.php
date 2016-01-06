@@ -60,6 +60,10 @@
 			}
 		} // End of login()
 
-
+		public function get_user($user_id)
+		{
+			$query = "SELECT * FROM users WHERE id = ?";
+			return $this->db->query($query, $user_id)->row_array();;
+		}
 	} // End of class
 ?>
