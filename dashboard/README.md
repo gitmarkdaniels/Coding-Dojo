@@ -1,0 +1,1 @@
+At the moment, this is a work in progress, so only some functionality will work. I have uploaded this to github mainly for practice. Eventually this project will be complete and working, but I will update this README.md file when that happens. Thank you for your patience.
