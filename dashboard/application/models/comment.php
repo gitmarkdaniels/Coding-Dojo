@@ -21,13 +21,13 @@
 
 		public function get_comments($message_id)
 		{
-			// $query = "SELECT comments.id, comments.content, comments.created_at,
-			// 					users.first_name, users.last_name
-			// 			FROM messages
-			// 			LEFT JOIN users ON messages.users_id = users.id
-			// 			LEFT JOIN comments ON messages.id = comments.message_id
-			// 			WHERE messages.id = ?";
-			// return $this->db->query($query, $message_id)->result_array();
+			$query = "SELECT comments.id, comments.content, comments.created_at,
+								users.first_name, users.last_name
+						FROM messages
+						LEFT JOIN users ON messages.user_id = users.id
+						LEFT JOIN comments ON messages.id = comments.message_id
+						WHERE messages.id = ? AND comments.id IS NOT NULL";
+			return $this->db->query($query, $message_id)->result_array();
 		}
 	}
 ?>

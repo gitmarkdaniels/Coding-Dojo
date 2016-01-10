@@ -63,7 +63,30 @@
 		public function get_user($user_id)
 		{
 			$query = "SELECT * FROM users WHERE id = ?";
-			return $this->db->query($query, $user_id)->row_array();;
+			return $this->db->query($query, $user_id)->row_array();
+		}
+
+		public function get_users()
+		{
+			$query = "SELECT * FROM users";
+			return $this->db->query($query)->result_array();
+		}
+
+		public function save_user($user_input)
+		{
+			$user_input = array(
+				'first_name' => $user_input['first_name'], 
+				'last_name' => $user_input['last_name'], 
+				'email' => $user_input['email'],
+				'admin' => $user_input['level'],
+				'id' => $user_input['user_id']);
+
+			$query = "UPDATE user_dashboard.users 
+						SET first_name = ?, last_name = ?, email = ?, admin = ?, updated_at = now()
+						WHERE id = ?";
+			$user_row = $this->db->query($query, $user_input);
+
+			return $user_row; // returns a boolean
 		}
 	} // End of class
 ?>

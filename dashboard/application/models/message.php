@@ -26,7 +26,7 @@
 						FROM walls
 						LEFT JOIN users ON walls.users_id = users.id
 						LEFT JOIN messages ON walls.id = messages.wall_id
-						WHERE walls.id = ?";
+						WHERE walls.id = ? AND messages.id IS NOT NULL";
 			return $this->db->query($query, $wall_id)->result_array();
 		}
 	}

@@ -1,4 +1,19 @@
 <div id="login_form" class="container">
+	<?php if ($this->session->flashdata('not_logged_in'))
+	{ ?>
+		<p class="bg-danger">
+			<?= $this->session->flashdata('not_logged_in') ?>
+		</p>
+	<?php
+	} ?>
+
+	<?php if ($this->session->userdata('user')['logged_in'])
+	{ ?>
+		<p class="bg-success">
+			<?= 'You are already logged in' ?>
+		</p>
+	<?php
+	} ?>
 	<form action="signin" method="post" class=" ml_350">
 		<fieldset>
 			<legend>Sign-in
@@ -17,5 +32,4 @@
 			<button type="submit" class="btn btn-default pull-right">Sign in</button>
 		</fieldset>
 	</form>
-	
 </div>

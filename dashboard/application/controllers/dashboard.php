@@ -2,14 +2,22 @@
 
 	class Dashboard extends CI_Controller
 	{
+		public function __construct()
+		{
+			parent::__construct();
+			$this->load->model('User');
+		}
+
 		public function index()
 		{
-			$this->load->view('dashboard/index');
+			$users = $this->User->get_users();
+			$this->load->view('dashboard/index', array('users' => $users));
 		}
 
 		public function admin()
 		{
-			$this->load->view('dashboard/admin');
+			$users = $this->User->get_users();
+			$this->load->view('dashboard/admin', array('users' => $users));
 		}
 	}
 ?>
