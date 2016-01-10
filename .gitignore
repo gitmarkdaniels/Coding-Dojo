@@ -1,6 +1,7 @@
 .DS_Store
 
 __Localhost/*
+ci/*
 
 application/cache/*
 !application/cache/index.html
