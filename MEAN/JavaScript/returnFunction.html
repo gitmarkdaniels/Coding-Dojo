@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: Fundamentals - Assignment 2</title>
+	<script type="text/javascript">
+
+		function operation (arg) {
+			function addition (arg1, arg2) {
+				var r;
+				r = arg1 + arg2;
+				return r;
+			};
+
+			function multiplication (arg1, arg2) {
+				var r;
+				r = arg1 * arg2;
+				return r;
+			};
+
+			if (arg == "add") {
+				return addition;
+			} else if (arg == "multiply") {
+				return multiplication;
+			} else {
+				return false;
+			}
+		}
+		operation("add")(4, 5);				// returns 9, because we invoke whatever is returned from 
+											// 	operation("add") -- and a function is returned from operation()
+		console.log(operation("add")(4, 5));
+
+		// operation("nada")(4, 5);			// What happens, since operation("nada") doesn't return a function?
+											// 	Uncaught TypeError: operation(...) is not a function
+
+		var mult = operation("multiply");	// returns the multiplication function
+		console.log(mult);					// you see the actual function logged to console
+
+		mult(4, 5);							// returns 20
+		console.log(mult(4, 5));
+
+		operation("subtract");				// returns false
+		console.log(operation("subtract"));
+
+	</script>
+</head>
+<body>
+	<h1>Assignment 2: Be The Interpreter!</h1>
+	<p>See console output</p>
+</body>
+</html>

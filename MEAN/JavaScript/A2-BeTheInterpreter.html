@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: Fundamentals - Assignment 2</title>
+	<script type="text/javascript">
+		// Problem 1
+		var first_variable;                     // var first_variable declaration floats to the top
+
+		console.log(first_variable);            // this will print undefined
+		first_variable = "Yipee I was first!";  // assignment stays where it is
+
+		function firstFunc() {                  // function is like a cage
+			first_variable = "Not anymore!!!";  // assignment stays where it is
+			console.log(first_variable);        // firstFunc() is not invoked in this problem, so nothing happens, but if it was invoked, this would print "Not anymore!!!"
+		}
+		console.log(first_variable);            // this prints "Yipee I was first!", since firstFunc() has not been invoked
+
+		// Problem 2
+		var food;                               // var food declaration floats to the top
+		food = "Chicken";                       // assignment stays where it is
+
+		function eat() {                        // function is like a cage
+			var food;                           // floats to the top of the eat() cage
+			food = "gone";                      // assignment stays where it is
+
+			food = "half-chicken";              // assignment stays where it is
+			console.log(food);                  // this will print "half-chicken", because it will look locally first, for the variable and it's value
+		}
+		eat();                                  // eat() is invoked, and runs the function, and prints "half-chicken"
+		console.log(food);                      // this prints "Chicken" because it refers to the global var 'food', and eat() declared a local var food, thus not affecting the global var food
+
+		// Problem 3
+		var new_word;                           // var new_word declaration floats to the top
+		new_word = "NEW!";                      // assignment stays where it is
+
+		function lastFunc() {                   // function is like a cage
+			new_word = "old";                   // assignment stays where it is
+		}
+		console.log(new_word);                  // this prints "NEW!", since it refers to the global var 'new_word', and lastFunc() was not invoked
+	</script>
+</head>
+<body>
+	<h1>Assignment 2: Be The Interpreter!</h1>
+	<p>See console output</p>
+</body>
+</html>

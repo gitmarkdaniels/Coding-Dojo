@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: Fundamentals Part II - Assignment 3</title>
+	<script type="text/javascript">
+	// console.log('\n\n');
+	console.log('// Standalone Functions:');
+
+		// Sum
+		function sum (start, end) {
+			var sum = 0;
+			for(var i = start; i < end; i++) {
+				sum = sum + i;
+			}
+			return sum;
+		}
+		console.log(sum(1, 500));
+		
+		// Minimum
+		var minArray = [1, 5, 90, 25, -3, 0];
+		var min = minArray[0];
+
+		function minimum (minArray) {
+			for(var i = 1; i < minArray.length; i++) {
+				if(minArray[i] < min) {
+					min = minArray[i];
+				}
+			}
+			return min;
+		}
+		console.log(minimum(minArray));
+
+		// Average
+		var aveArray = [1, 5, 90, 25, -3, 0];
+		function average (aveArray) {
+			var sum = 0;
+			var average = 0;
+			for(var i = 0; i < aveArray.length; i++) {
+				sum = sum + aveArray[i];
+			}
+			average = sum / aveArray.length;
+			return average;
+		}
+		console.log(average(aveArray));
+
+	console.log('\n// Anonymous Functions:');
+		// Sum
+		var sum = function (start, end) {
+			var sum = 0;
+			for(var i = start; i < end; i++) {
+				sum = sum + i;
+			}
+			return sum;
+		}
+		console.log(sum(1, 500));
+
+		// Minimum
+		var minArray = [1, 5, 90, 25, -3, 0];
+		var min = minArray[0];
+
+		var minimum = function (minArray) {
+			for(var i = 1; i < minArray.length; i++) {
+				if(minArray[i] < min) {
+					min = minArray[i];
+				}
+			}
+			return min;
+		}
+		console.log(minimum(minArray));
+
+		// Average
+		var aveArray = [1, 5, 90, 25, -3, 0];
+
+		var average = function (aveArray) {
+			var sum = 0;
+			var average = 0;
+			for(var i = 0; i < aveArray.length; i++) {
+				sum = sum + aveArray[i];
+			}
+			average = sum / aveArray.length;
+			return average;
+		}
+		console.log(average(aveArray));
+
+	console.log('\n// Object: part1:');
+		var part1 = {
+			sum: function (start, end) {
+				var sum = 0;
+				for(var i = start; i < end; i++) {
+					sum = sum + i;
+				}
+				return sum;
+			},
+			minimum: function (minArray) {
+				var minimum = minArray[0];
+				for(var i = 1; i < minArray.length; i++) {
+					if(minArray[i] < minimum) {
+						minimum = minArray[i];
+					}
+				}
+				return minimum;
+			},
+			average: function (aveArray) {
+				var sum = 0;
+				var average = 0;
+				for(var i = 0; i < aveArray.length; i++) {
+					sum = sum + aveArray[i];
+				}
+				average = sum / aveArray.length;
+				return average;
+			}
+		};
+		var myArray = [1, 5, 90, 25, -3, 0];
+		console.log(part1.sum(1, 500));
+		console.log(part1.minimum(myArray));
+		console.log(part1.average(myArray));
+
+		// Object: person:
+		var person = {
+			name: 'Trey',
+			distance_travelled: 0,
+			
+			say_name: function() {
+				alert(this.name);
+			},
+
+			say_something: function(message) {
+				alert(this.name + ' says, ' + message + '.');
+			},
+
+			walk: function() {
+				var increase = 3;
+				this.distance_travelled += increase;
+				alert(this.name + ' is walking. Total Distance travelled: ' + this.distance_travelled + ' (increased by ' + increase + ').');
+			},
+
+			run: function() {
+				var increase = 10;
+				this.distance_travelled += increase;
+				alert(this.name + ' is running. Total Distance travelled: ' + this.distance_travelled + ' (increased by ' + increase + ').');
+			},
+
+			crawl: function() {
+				var increase = 1;
+				this.distance_travelled += increase;
+				alert(this.name + ' is crawling. Total Distance travelled: ' + this.distance_travelled + ' (increased by ' + increase + ').');
+			}
+		};
+		person.say_name();
+		person.say_something('I am cool');
+
+		person.walk();
+		person.run();
+		person.crawl();
+	</script>
+</head>
+<body>
+	<h1>JavaScript Fundamentals Part II</h1>
+	<p>Assignment 3</p>
+</body>
+</html>
