@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: Fundamentals Part II - Assignment 5</title>
+	<script type="text/javascript">
+		// Person
+		function personConstructor (name) {
+			var person = {
+				name: name,
+				distance_travelled: 0,
+				
+				say_name: function() {
+					alert(person.name);
+				},
+
+				say_something: function(message) {
+					alert(person.name + ' says, ' + message + '.');
+				},
+
+				walk: function() {
+					var increase = 3;
+					person.distance_travelled += increase;
+					alert(person.name + ' is walking. Total Distance travelled: ' + person.distance_travelled + ' (increased by ' + increase + ').');
+				},
+
+				run: function() {
+					var increase = 10;
+					person.distance_travelled += increase;
+					alert(person.name + ' is running. Total Distance travelled: ' + person.distance_travelled + ' (increased by ' + increase + ').');
+				},
+
+				crawl: function() {
+					var increase = 1;
+					person.distance_travelled += increase;
+					alert(person.name + ' is crawling. Total Distance travelled: ' + person.distance_travelled + ' (increased by ' + increase + ').');
+				}
+			};
+			return person;
+		}
+		var person1 = personConstructor('Jane');
+		person1.say_name();
+		person1.say_something('I am cool');
+
+		person1.walk();
+		person1.run();
+		person1.crawl();
+
+		// Ninja
+		function ninjaConstructor (name) {
+			var ninja = {
+				name: name,
+				cohort: 'October 2015',
+				"belt-level": 'yellow-belt',
+
+				levelUp: function(belt) {
+					ninja["belt-level"] = belt;
+					alert(ninja.name + ' you have been upgraded to ' + ninja["belt-level"] + '!');
+				}
+			};
+			return ninja;
+		}
+		var ninja1 = ninjaConstructor('John');
+		ninja1.levelUp("red-belt");
+
+	</script>
+</head>
+<body>
+	<h1>JavaScript Fundamentals Part III</h1>
+	<p>Assignment 5</p>
+</body>
+</html>
