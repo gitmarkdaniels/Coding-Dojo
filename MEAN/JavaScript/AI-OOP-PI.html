@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: OOP - Part 1</title>
+	<script type="text/javascript">
+
+		function VehicleConstructor (name, wheels, passengers) {
+			var vehicle = {};
+				vehicle.name = name,
+				vehicle.wheels = wheels,
+				vehicle.passengers = passengers,
+
+				vehicle.makeNoise = function() {
+				}
+			return vehicle;
+		}
+
+		// Bike
+		var bike = VehicleConstructor ('Bike', 2, 1);
+		bike.makeNoise = function() { 
+			console.log("ring ring!")
+		}
+		bike.makeNoise();
+
+		// Sedan
+		var sedan = VehicleConstructor ('Sedan', 4, 4);
+		sedan.makeNoise = function() { 
+			console.log("Honk Honk!")
+		}
+		sedan.makeNoise();
+
+		// Bus
+		var bus = VehicleConstructor ('Bus', 8, 10);
+		bus.pickUpPassengers = function(pickup) {
+			bus.passengers += pickup;
+		}
+		bus.pickUpPassengers(3);
+		console.log('Bus passengers: ' + bus.passengers);
+
+	</script>
+</head>
+<body>
+	<h1>JavaScript: OOP - Part 1</h1>
+	<p>Assignment 1</p>
+</body>
+</html>

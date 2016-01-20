@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: OOP - Part 2</title>
+	<script type="text/javascript">
+		function Ninja(name, age, prevOccupation) { 
+			// PUBLIC ATTRIBUTES DECLARED HERE
+			this.name = name;
+			this.age = age;
+			this.prevOccupation = prevOccupation
+
+			// PRIVATE VARIABLE DECLARED HERE
+			var privateVar = "This is a private variable";
+			var self = this; // this is what we need to do to keep track of this
+			// PRIVATE METHOD DECLARED HERE
+			var privateMethod = function() {
+				console.log("this is a private method for " + self.name);     // refer to name via self
+			} 
+
+			// PUBLIC METHODS DECLARED HERE
+			this.introduce = function() {
+				console.log("Hi my name is " + this.name + ". I used to be a " + this.prevOccupation + " and now I'm a Ninja!");
+				privateMethod();             // this works since it is a scope that can access privateMethod!
+				console.log(privateVar);     // this works too!
+			}
+		}
+		var Andrew = new Ninja("Andrew", 24, "TFA Teacher");
+		Andrew.introduce();
+
+		function VehicleConstructor (name, wheels, passengers, speed) {
+			
+			this.name = name;
+			this.wheels = wheels;
+			this.passengers = passengers;
+			this.speed = speed;
+
+			var distance_travelled = 0;
+			var self = this;
+
+			var updateDistanceTravelled = function() {
+				self.distance_travelled += self.speed;
+			}
+
+			this.makeNoise = function() {
+			}
+
+			this.move = function() {
+				updateDistanceTravelled();
+				// makeNoise();
+			}
+
+			this.checkMiles = function() {
+				console.log(distance_travelled);
+			}
+		}
+
+		// Bike
+		var bike = new VehicleConstructor ('Bike', 2, 1, 15);
+		bike.makeNoise = function() { 
+			console.log("ring ring!")
+		}
+		bike.makeNoise();
+		bike.move();
+		bike.checkMiles();
+
+		// // Sedan
+		// var sedan = new VehicleConstructor ('Sedan', 4, 4, 70);
+		// sedan.makeNoise = function() { 
+		// 	console.log("Honk Honk!")
+		// }
+		// sedan.makeNoise();
+		// sedan.checkMiles();
+
+		// // Bus
+		// var bus = new VehicleConstructor ('Bus', 8, 10, 50);
+		// bus.pickUpPassengers = function(pickup) {
+		// 	bus.passengers += pickup;
+		// }
+		// bus.pickUpPassengers(3);
+		// console.log('Bus passengers: ' + bus.passengers);
+
+	</script>
+</head>
+<body>
+	<h1>JavaScript: OOP - Part 2</h1>
+	<p>Assignment 2</p>
+</body>
+</html>
