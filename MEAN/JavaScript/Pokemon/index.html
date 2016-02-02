@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript: </title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			for (var i = 1; i <= 151; i++) {
+				$("body").append("<img id='"+ i +"' src='http://pokeapi.co/media/img/" + i + ".png'>");
+			}
+
+			$("img").click(function() {
+				var id = $(this).attr('id');
+				$.get("http://pokeapi.co/api/v1/pokemon/" + id + "/", function(res) {
+					console.log(res);
+					var htmlString = '';
+					htmlString += '<h3>';
+					htmlString += res.name;
+					htmlString += '</h3>';
+					htmlString += '<img src="http://pokeapi.co/media/img/' + id + '.png">';
+
+					htmlString += '<h5>Types</h5>';
+					htmlString += '<ul>';
+					for (var i = 0; i < res.types.length; i++) {
+						htmlString += '<li>' + res.types[i].name + '</li>';
+					}
+					htmlString += '</ul>';
+
+					htmlString += '<h5>Height</h5>';
+					htmlString += '<p>' + res.height + '</p>';
+
+					htmlString += '<p>Weight</p>';
+					htmlString += '<p>' + res.weight + '</p>';
+
+					$('.info').html(htmlString);
+				}, "json");
+			});
+		})
+	</script>
+	<style type="text/css">
+		.info {
+			float: right;
+			font-size: 2em;
+			border: 2px solid #ff0000;
+			width: 200px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="info"></div>
+</body>
+</html>
