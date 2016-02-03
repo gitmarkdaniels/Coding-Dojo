@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced JS: Assignment V: Fib + Nacci</title>
+	<script type="text/javascript">
+		function fib(number1, number2) {
+			var number1 = 1;
+			var number2 = 1;
+			var total = 0; 
+
+			function nacci() {
+				total = number1;
+				console.log(total);
+
+				number1 = number2;
+				number2 += total;
+			}
+			return nacci
+		}
+		var fibCounter = fib();
+		fibCounter() // 1
+		fibCounter() // 1
+		fibCounter() // 2
+		fibCounter() // 3
+		fibCounter() // 5
+		fibCounter() // 8
+
+		fibCounter() // 13
+		fibCounter() // 21
+		fibCounter() // 34
+		fibCounter() // 55
+		fibCounter() // 89
+	</script>
+</head>
+<body>
+	<h1>Closures: Fib + Nacci</h1>
+	<p>Assignment 5</p>
+</body>
+</html>
