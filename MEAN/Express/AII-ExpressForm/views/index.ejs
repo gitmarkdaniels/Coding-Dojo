@@ -12,38 +12,36 @@
 			// trigger connection event
 			var socket = io.connect();
 			var formData = '';
-			var formObject = {};
 			var htmlString = '';
 
 			$('#form_id').on('submit', function (event) {
 				event.preventDefault();
 
-				// Retrieve form information
+				// Retrieve and serialize form information
 				formData = $('#form_id').serializeArray();
 
-				// Create object from serialized form data
-				$.each(formData, function(idx) {
-					formObject[formData[idx].name] = formData[idx].value;
-				});
-
-				// Emit form information
+				// Emit serialized form information
 				socket.emit('posting_form', formData);
+			});
 
-				// Build form submission information
-				htmlString = '<div id="results">';
-					htmlString += '<p>You emitted these to the server:  ';
-						htmlString += JSON.stringify(formObject, null, 1);
+			// Sockets: listen for server's response and displays data
+			socket.on('random_number', function (data) {
+				console.log('The server says: ', data);
+
+				// Build string to display message
+				htmlString = '<div id="results" class="unhide">';
+					htmlString += '<p>Lucky number emmitted by the server is ';
+						htmlString += data;
 					htmlString += '</p>';
 				htmlString += '</div>';
 
-				// Display
+				// Display data
 				$('#results').replaceWith(htmlString);
 			});
 
-			// Sockets: listen for server response, display data
-			socket.on('server_response', function (data) {
+			socket.on('updated_message', function (data) {
 				console.log('The server says: ', data);
-				$('#results').append('Lucky number emmitted by the server is: ', data);
+				$('#results').prepend('You emitted the following information to the server: ', data);
 			});
 		})
 	</script>
@@ -51,7 +49,7 @@
 <body>
 	<div id="wrapper">
 		<h2>Form input</h2>
-		<div id="results"></div>
+		<div id="results" class="hide"></div>
 		<form id="form_id">
 			<label for="name">Your name:</label>
 			<input type="text" id="name" placeholder="your name" name="name" value="John Doe">

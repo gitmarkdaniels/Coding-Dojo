@@ -24,15 +24,27 @@ io = io.listen(server);
 
 // connection (event is built-in)
 io.sockets.on('connection', function (socket) {
-	console.log('My socket ID: ' + socket.id);
+	console.log('Socket ID: ' + socket.id);
 
-	socket.on('posting_form', function (data) {
+	socket.on('posting_form', function (formData) {
 		// Data received from client
-		data = JSON.stringify(data);
-		console.log('Form data: ' + data);
+		console.log('Form data: ' + formData);
 
-		// Response to client
+		// Create object from serialized form data
+		var formObject = {};
+		for (var i = 0; i < formData.length; i++) {
+			formObject[formData[i].name] = formData[i].value;
+		}
+
+		// Transform object to JSON string
+		jsonObject = JSON.stringify(formObject, null, 4);
+
+		// Create random number
 		var rand = Math.floor((Math.random() * 1000) + 1);
-		socket.emit('server_response', rand);
+
+		// Emit to client
+		socket.emit('random_number', rand);
+		socket.emit('updated_message', jsonObject);
+		
 	});
 });
