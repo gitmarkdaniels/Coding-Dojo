@@ -1,0 +1,23 @@
+<section>
+	<form ng-submit="TCtrl.create()">
+		<fieldset>
+			<legend>Add a new team</legend>
+			<label>Name:</label>
+			<input type="text" ng-model="TCtrl.newTeam.name"></input>
+			<input type="submit" value="Add team"></input>
+		</fieldset>
+	</form>
+
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat="team in TCtrl.teams">
+			<td>{{ team.name }}</td>
+			<td>
+				<button ng-click="TCtrl.destroy(team)">Delete Player</button>
+			</td>
+		</tr>
+	</table>
+</section>

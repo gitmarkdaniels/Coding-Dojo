@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment 6: 3 Partials, 2 Controllers and 2 Facotories</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+	<script type="text/javascript" src="/js/factories/TeamFactory.js"></script>
+	<script type="text/javascript" src="/js/controllers/TeamsController.js"></script>
+	<script type="text/javascript" src="/js/factories/PlayerFactory.js"></script>
+	<script type="text/javascript" src="/js/controllers/PlayersController.js"></script>
+</head>
+<body>
+	<a href="/#/players">Players</a> | <a href="/#/teams">Teams</a> | <a href="/#/associations">Associations</a>
+	<div ng-view></div>
+</body>
+</html>
